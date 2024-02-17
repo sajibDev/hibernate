@@ -3,6 +3,9 @@ package com.sajib.hibernate.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "student")
@@ -21,5 +24,17 @@ public class Student {
 
     @Column(name = "email")
     private String email;
+    @ManyToMany(cascade ={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH} )
+    @JoinTable(
+            name="course_student",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private List<Course> courses;
+
+    public void addCourses(Course course){
+        if(courses==null) courses = new ArrayList<>();
+        courses.add(course);
+    }
 
 }

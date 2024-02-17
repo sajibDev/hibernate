@@ -14,9 +14,6 @@
         <!-- JDBC connection pool settings -->
         <property name="hibernate.connection.pool_size">5</property>
 
-        <!-- SQL dialect -->
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-
         <!-- Enable Hibernate's automatic session context management -->
         <property name="hibernate.current_session_context_class">thread</property>
 
