@@ -51,28 +51,33 @@ public class HibernateApplication {
 
            for(Course course:instructor.getCourses()) System.err.println(course);*/
        /*     instructor.add(c1).add(c2).add(c3);*/
-     /*       Review review1 = new Review();
-            review1.setUserComment("Excellent course.");
-            Review review2 = new Review();
-            review2.setUserComment("good course.");
-            Review review3 = new Review();
-            review3.setUserComment("not beginner friendly course.");
-
-            Course course = new Course();
-            Instructor instructor = session.get(Instructor.class,1);
-            course.setTitle("TLE");
-            course.setInstructor(instructor);
-            course.addReview(review1);
-            course.addReview(review2);
-            course.addReview(review3);*/
-            Review review = session.get(Review.class,5);
 
 
-   /*         course.getReviews().forEach(review -> review.setCourse(course));*/
+            Course ict = session.get(Course.class,28);
+
+ /*           Student sajib = new Student();
+            sajib.setFirstName("Sajib");
+            sajib.setLastName("Chowdhury");
+            sajib.setEmail("mdsajibcse14@gmail.com");
+
+            Student tahmid = new Student();
+            tahmid.setFirstName("Tahmid");
+            tahmid.setLastName("Ahmed");
+            tahmid.setEmail("tahmid@gmail.com"); // Changed email address
+
+            Student habib = new Student();
+            habib.setFirstName("Habib");
+            habib.setLastName("Hanjala");
+            habib.setEmail("habib@gmail.com");
+
+            ict.addStudents(sajib);
+            ict.addStudents(tahmid);
+            ict.addStudents(habib);*/
 
             transaction = session.beginTransaction();
-            session.remove(review);
+            session.remove(ict);
             transaction.commit();
+
 
 
         } catch (Exception e) {
